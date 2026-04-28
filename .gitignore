@@ -1,17 +1,6 @@
-﻿# Java / Android
-jdk*/
-.gradle/
-local.properties
-android/.gradle/
-android/app/build/
-android/build/
-
-# Node
 node_modules/
+android/
+.gradle/
 dist/
 www/
-
-# IDE
-.vscode/
-.idea/
-*.iml
+.DS_Store

@@ -1,0 +1,83 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+.app { max-width: 500px; margin: 0 auto; min-height: 100vh; background: white; }
+header {
+  background: linear-gradient(135deg, #e63946, #f77f00);
+  color: white; padding: 24px 20px; text-align: center;
+}
+header h1 { font-size: 28px; margin-bottom: 4px; }
+header p { opacity: 0.9; font-size: 14px; }
+
+main { padding: 20px; }
+.pizza-preview {
+  width: 220px; height: 220px; margin: 0 auto 30px;
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.pizza-base {
+  width: 200px; height: 200px; background: #f4a261;
+  border-radius: 50%; border: 12px solid #e76f51;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15), inset 0 0 30px rgba(231,111,81,0.3);
+  position: relative; transition: transform 0.3s;
+}
+.pizza-base::after {
+  content: ''; position: absolute; inset: 15px;
+  background: #e63946; border-radius: 50%; opacity: 0.7;
+}
+.topping {
+  position: absolute; width: 24px; height: 24px;
+  border-radius: 50%; font-size: 18px; display: flex;
+  align-items: center; justify-content: center;
+  animation: drop 0.5s ease-out;
+  z-index: 10;
+}
+@keyframes drop {
+  from { transform: translateY(-50px) scale(0); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.controls h2 { font-size: 18px; margin-bottom: 12px; }
+.toppings {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 8px; margin-bottom: 24px;
+}
+.toppings button {
+  padding: 12px; border: 2px solid #e5e7eb; background: white;
+  border-radius: 12px; font-size: 14px; cursor: pointer;
+  transition: all 0.2s; text-align: left;
+}
+.toppings button.active {
+  border-color: #e63946; background: #fff1f2; color: #e63946;
+  font-weight: 600;
+}
+
+.size h3 { font-size: 16px; margin-bottom: 8px; }
+.size-buttons { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.size-btn {
+  padding: 12px 16px; border: 2px solid #e5e7eb; background: white;
+  border-radius: 10px; cursor: pointer; text-align: left; font-size: 14px;
+  transition: all 0.2s;
+}
+.size-btn.active { border-color: #667eea; background: #eef2ff; color: #4338ca; font-weight: 600; }
+
+.order { display: flex; align-items: center; gap: 12px; }
+.price { font-size: 24px; font-weight: 700; color: #e63946; flex: 1; }
+.order-btn {
+  flex: 2; padding: 16px; background: linear-gradient(135deg, #e63946, #f77f00);
+  color: white; border: none; border-radius: 14px; font-size: 16px;
+  font-weight: 700; cursor: pointer; box-shadow: 0 4px 14px rgba(230,57,70,0.4);
+  transition: transform 0.1s;
+}
+.order-btn:active { transform: scale(0.97); }
+
+.toast {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+  background: #1f2937; color: white; padding: 14px 22px; border-radius: 12px;
+  font-weight: 600; opacity: 0; transition: all 0.3s; z-index: 100;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }

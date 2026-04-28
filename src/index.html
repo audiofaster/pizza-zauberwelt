@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pizza Zauberwelt</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e63946">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🍕 Pizza Zauberwelt</h1>
+      <p>Deine magische Pizzabäckerei</p>
+    </header>
+
+    <main>
+      <div class="pizza-builder">
+        <div class="pizza-preview" id="pizzaPreview">
+          <div class="pizza-base"></div>
+        </div>
+
+        <div class="controls">
+          <h2>Wähle deine Zutaten</h2>
+          <div class="toppings" id="toppings">
+            <button data-topping="salami">🍖 Salami</button>
+            <button data-topping="pilze">🍄 Pilze</button>
+            <button data-topping="paprika">🫑 Paprika</button>
+            <button data-topping="zwiebel">🧅 Zwiebel</button>
+            <button data-topping="oliven">🫒 Oliven</button>
+            <button data-topping="mais">🌽 Mais</button>
+            <button data-topping="ananas">🍍 Ananas</button>
+            <button data-topping="chili">🌶️ Chili</button>
+          </div>
+
+          <div class="size">
+            <h3>Größe</h3>
+            <div class="size-buttons">
+              <button class="size-btn active" data-size="mittel">Mittel (26cm) - 8,90€</button>
+              <button class="size-btn" data-size="groß">Groß (32cm) - 11,90€</button>
+              <button class="size-btn" data-size="familie">Familie (40cm) - 15,90€</button>
+            </div>
+          </div>
+
+          <div class="order">
+            <div class="price" id="price">8,90 €</div>
+            <button class="order-btn" id="orderBtn">✨ Pizza zaubern!</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

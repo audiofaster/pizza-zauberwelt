@@ -1,4 +1,4 @@
-﻿name: Build APK
+name: Build APK
 on:
   push:
     branches: [ main ]
@@ -12,18 +12,24 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
-      - run: npm run build
+      - name: Install dependencies
+        run: npm install
+      - name: Build web assets
+        run: npm run build
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
       - uses: android-actions/setup-android@v3
-      - run: npx cap sync android
-      - name: Build APK
+      - name: Add Android platform
+        run: npx cap add android
+      - name: Sync Capacitor
+        run: npx cap sync android
+      - name: Build Debug APK
         working-directory: android
         run: ./gradlew assembleDebug
-      - uses: actions/upload-artifact@v4
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
         with:
           name: Pizza-Zauberwelt-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
