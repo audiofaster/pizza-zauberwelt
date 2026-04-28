@@ -1,4 +1,4 @@
-name: Build APK
+﻿name: Build APK
 on:
   push:
     branches: [ main ]
@@ -21,6 +21,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - uses: android-actions/setup-android@v3
+      - name: Clean old android folder
+        run: rm -rf android
       - name: Add Android platform
         run: npx cap add android
       - name: Sync Capacitor
