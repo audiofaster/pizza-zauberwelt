@@ -1,0 +1,17 @@
+﻿# Java / Android
+jdk*/
+.gradle/
+local.properties
+android/.gradle/
+android/app/build/
+android/build/
+
+# Node
+node_modules/
+dist/
+www/
+
+# IDE
+.vscode/
+.idea/
+*.iml
